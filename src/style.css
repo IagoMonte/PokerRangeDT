@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0A0E14;
+  --color-bg-secondary: #141922;
+  --color-bg-tertiary: #1C2230;
+  
+  --color-border-subtle: #252B3B;
+  --color-border-active: #3A4255;
+  
+  --color-text-primary: #E6EDF3;
+  --color-text-secondary: #8B949E;
+  --color-text-muted: #7A828E;
+  
+  --color-action-primary: #7C93FF;
+  --color-action-call: #5FB4A5;
+  --color-action-fold: #E06C75;
+  --color-action-raise: #E5A84B;
+  --color-action-allin: #C678DD;
+  
+  --color-feedback-success: #5FB4A5;
+  --color-feedback-error: #E06C75;
+  --color-feedback-info: #7C93FF;
+
+  --font-sans: "Inter", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    /* Hero card size — single source of truth. Change these two lines
+       to resize; CardComponent hero reads them. */
+    --hero-card-w: 48px;
+    --hero-card-h: 68px;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary antialiased;
+    font-family: var(--font-sans);
+  }
+
+  /* Villain mini-card size — single source of truth. PlayerHand hero
+     tokens above stay the authority for hero cards. */
+  :root {
+    --villain-card-w: 30px;
+    --villain-card-h: 42px;
+  }
+
+  /* Shared deal-in: flip+fade on mount (PlayerHand, BoardDisplay,
+     VillainHand). backwards fill covers the cascade stagger delay. */
+  .deal-in {
+    animation: deal-in 250ms ease-out backwards;
+  }
+  @keyframes deal-in {
+    0% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(0deg); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .deal-in { animation: none; }
+  }
+
+  /* Tabular numbers for all mono fonts to ensure poker data alignment */
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Visible keyboard focus everywhere: 2px action-primary ring.
+     Measured 6.88:1 on bg-primary (needs 3:1 for UI). Components must
+     not use focus:outline-none — the ring is the focus indicator. */
+  :focus-visible {
+    outline: 2px solid var(--color-action-primary);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion: kill every CSS animation/transition at once
+     (deal-in, seat-pulse, ping countdown, toasts, slider). JS sleeps
+     (settle pauses) and the pot count-up check matchMedia separately. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Keep the stage proportional to a 430×932 viewport. */
+  .stage-outer {
+    height: calc(100vh - 4rem - 1px);
+    height: calc(100dvh - 4rem - 1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .game-stage {
+    width: 430px;
+    height: 932px;
+    flex: none;
+    position: relative;
+    overflow: hidden;
+    transform-origin: center;
+    scale: min(calc(100vw / 430px), calc((100vh - 4rem - 1px) / 932px));
+    scale: min(calc(100vw / 430px), calc((100dvh - 4rem - 1px) / 932px));
+  }
+  /* Keep mobile form controls at 16px to prevent iOS focus zoom. */
+  @media (max-width: 600px) {
+    input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='file']),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@layer utilities {
+  .transition-studio {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* Inset overlays tint the surface without affecting layout dimensions. */
+  .sl-hover:hover {
+    box-shadow: inset 0 0 0 999px color-mix(in srgb, currentColor 8%, transparent);
+  }
+  .sl-active:active {
+    box-shadow: inset 0 0 0 999px color-mix(in srgb, currentColor 12%, transparent);
+  }
+}

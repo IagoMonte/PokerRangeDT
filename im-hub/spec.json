@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "slug": "pokerrangedt",
+  "title": {
+    "pt": "PokerRangeDT"
+  },
+  "summary": {
+    "pt": "Treinador de ranges 9-max com vilões configuráveis, drills com relógio e coach que aponta vazamentos mão a mão."
+  },
+  "status": "dev",
+  "category": {
+    "slug": "entretenimento",
+    "name": {
+      "pt": "entretenimento"
+    },
+    "tagline": {
+      "pt": "Jogos e treino interativo: mesa, drill e placar em tempo real."
+    },
+    "colors": [
+      "#7C93FF",
+      "#0A0E14",
+      "#5FB4A5"
+    ],
+    "fx": "glitch"
+  },
+  "stack": [
+    "Vue",
+    "Vite",
+    "Tailwind CSS",
+    "Vue Router",
+    "Vitest"
+  ],
+  "facts": {
+    "role": {
+      "pt": "Autor e desenvolvedor"
+    },
+    "period": {
+      "start": "2026-06",
+      "end": "atual"
+    },
+    "context": {
+      "pt": "projeto pessoal"
+    }
+  },
+  "links": [
+    {
+      "kind": "repo",
+      "url": "https://github.com/IagoMonte/PokerRangeDT"
+    }
+  ],
+  "thumbnail": "thumbnail.png",
+  "shots": [
+    {
+      "file": "shots/01-mesa-acao.png",
+      "caption": {
+        "pt": "mesa 9-max em ação com relógio e pot ao vivo"
+      },
+      "format": "desktop"
+    },
+    {
+      "file": "shots/02-range-matrix.png",
+      "caption": {
+        "pt": "matriz 13x13 de RFI e XRFI por posição"
+      },
+      "format": "desktop"
+    },
+    {
+      "file": "shots/03-villain-settings.png",
+      "caption": {
+        "pt": "perfis de vilão ajustáveis por agressividade"
+      },
+      "format": "desktop"
+    },
+    {
+      "file": "shots/04-drill-settings.png",
+      "caption": {
+        "pt": "configuração de drill com tempo e stacks"
+      },
+      "format": "desktop"
+    },
+    {
+      "file": "shots/05-profile.png",
+      "caption": {
+        "pt": "perfil com VPIP, PFR e EV por rua"
+      },
+      "format": "desktop"
+    },
+    {
+      "file": "shots/06-mobile-start.png",
+      "caption": {
+        "pt": "mesa no celular a um toque"
+      },
+      "format": "mobile"
+    }
+  ]
+}
