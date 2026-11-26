@@ -92,5 +92,19 @@
       },
       "format": "mobile"
     }
+  ],
+  "docs": [
+    {
+      "name": "README",
+      "file": "docs/readme.md"
+    },
+    {
+      "name": "ARQUITETURA",
+      "file": "docs/arquitetura.md"
+    },
+    {
+      "name": "CHANGELOG",
+      "file": "docs/changelog.md"
+    }
   ]
 }

@@ -4,7 +4,7 @@
 
 **Treine ranges 9-max contra vilões que jogam de verdade.**
 
-![versão](https://img.shields.io/badge/vers%C3%A3o-1.0.0-7C93FF?style=flat-square)
+![versão](https://img.shields.io/badge/vers%C3%A3o-1.1.0-7C93FF?style=flat-square)
 ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square&logo=vuedotjs&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)
